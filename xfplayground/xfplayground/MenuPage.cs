@@ -5,8 +5,11 @@ namespace xfplayground
 {
     public class MenuPage : ContentPage
     {
-        public MenuPage()
+        private readonly NavigationPage _navigationPage;
+
+        public MenuPage(NavigationPage navigationPage)
         {
+            _navigationPage = navigationPage;
             var listView = new ListView
             {
                 ItemsSource = ItemsSource,
@@ -20,7 +23,7 @@ namespace xfplayground
             };
             listView.ItemTapped += (sender, args) =>
             {
-                Navigation.PushAsync((args.Item as MenuItem).Page);
+                _navigationPage.PushAsync((args.Item as MenuItem).Page);
             };
             Content = listView;
         }

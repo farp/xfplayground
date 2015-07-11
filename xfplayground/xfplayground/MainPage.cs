@@ -7,11 +7,11 @@ namespace xfplayground
         public MainPage()
         {
             var welcomePage = new ContentPage {Title = "Welcome"};
-            var detail = new NavigationPage {Title = "Detail"};
-            detail.PushAsync(welcomePage);
-            var master = new MenuPage {Title = "Menu"};
+            var navigationPage = new NavigationPage {Title = "Detail"};
+            navigationPage.PushAsync(welcomePage);
+            var master = new MenuPage(navigationPage) {Title = "Menu"};
             Master = master;
-            Detail = detail;
+            Detail = navigationPage;
         }
     }
 }
